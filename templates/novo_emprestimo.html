@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+{% block content %}
+<h1>Registrar novo empréstimo</h1>
+<form method="post">
+  <label>Usuário solicitante</label>
+  <select name="id_usuario" required>
+    {% for u in usuarios %}
+    <option value="{{ u['id_usuario'] }}">{{ u['nome'] }} ({{ u['matricula'] }})</option>
+    {% endfor %}
+  </select>
+
+  <label>Equipamento</label>
+  <select name="id_equipamento" required>
+    {% for e in equipamentos %}
+    <option value="{{ e['id_equipamento'] }}">{{ e['nome'] }} — {{ e['qtd_disponivel'] }} disponível(is)</option>
+    {% endfor %}
+  </select>
+
+  <label>Prazo (dias)</label>
+  <input type="number" name="dias" value="7" min="1" required>
+
+  <button type="submit">Registrar empréstimo</button>
+</form>
+{% endblock %}

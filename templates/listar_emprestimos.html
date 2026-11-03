@@ -1,0 +1,28 @@
+{% extends "_base.html" %}
+{% block content %}
+<h1>Empréstimos registrados</h1>
+<table>
+  <thead>
+    <tr><th>#</th><th>Usuário</th><th>Equipamento</th><th>Retirada</th><th>Prev. devolução</th><th>Status</th><th></th></tr>
+  </thead>
+  <tbody>
+    {% for e in emprestimos %}
+    <tr>
+      <td>{{ e['id_emprestimo'] }}</td>
+      <td>{{ e['usuario'] }}</td>
+      <td>{{ e['equipamento'] }}</td>
+      <td>{{ e['data_retirada'] }}</td>
+      <td>{{ e['data_prev_devolucao'] }}</td>
+      <td><span class="badge {{ e['status'] }}">{{ 'Em andamento' if e['status']=='em_andamento' else 'Devolvido' }}</span></td>
+      <td>
+        {% if e['status'] == 'em_andamento' %}
+        <form method="post" action="/emprestimos/{{ e['id_emprestimo'] }}/devolver">
+          <button type="submit" style="margin:0;padding:5px 10px;font-size:12px;">Devolver</button>
+        </form>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

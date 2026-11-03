@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+{% block content %}
+<h1>Cadastrar novo equipamento</h1>
+<form method="post">
+  <label>Nome do equipamento</label>
+  <input type="text" name="nome" placeholder="Ex.: Furadeira de impacto" required>
+
+  <label>Código de patrimônio</label>
+  <input type="text" name="cod_patrimonio" placeholder="Ex.: EQ-004" required>
+
+  <label>Categoria</label>
+  <input type="text" name="categoria" placeholder="Ex.: Ferramentas Elétricas" required>
+
+  <label>Quantidade total</label>
+  <input type="number" name="qtd_total" min="1" value="1" required>
+
+  <button type="submit">Salvar equipamento</button>
+</form>
+{% endblock %}

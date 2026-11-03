@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+{% block content %}
+<h1>Equipamentos cadastrados</h1>
+<p style="color:#64748b; font-size:13.5px; margin-top:-8px;">Consulta de disponibilidade em tempo real (RF05).</p>
+<div class="grid-cards">
+  {% for e in equipamentos %}
+  <div class="eqp">
+    <div class="nome">{{ e['nome'] }}</div>
+    <div class="meta">Patrimônio: {{ e['cod_patrimonio'] }}</div>
+    <div class="meta">Categoria: {{ e['categoria'] }}</div>
+    <span class="pill">{{ e['qtd_disponivel'] }} / {{ e['qtd_total'] }} disponíveis</span>
+  </div>
+  {% endfor %}
+</div>
+<div class="actions">
+  <a class="btn-link" href="/equipamentos/novo">+ Cadastrar equipamento</a>
+  <a class="btn-link" href="/emprestimos/novo">+ Novo empréstimo</a>
+</div>
+{% endblock %}
