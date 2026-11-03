@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 emprestimos.db
 flask.log
+.venv/
+venv/
+*.sh
+*PROMPT*.md
